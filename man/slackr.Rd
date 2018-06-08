@@ -7,7 +7,7 @@
 slackr(..., channel = Sys.getenv("SLACK_CHANNEL"),
   username = Sys.getenv("SLACK_USERNAME"),
   icon_emoji = Sys.getenv("SLACK_ICON_EMOJI"),
-  api_token = Sys.getenv("SLACK_API_TOKEN"))
+  api_token = Sys.getenv("SLACK_API_TOKEN"), as_user = TRUE)
 }
 \arguments{
 \item{...}{expressions to be sent to Slack}
@@ -19,6 +19,8 @@ slackr(..., channel = Sys.getenv("SLACK_CHANNEL"),
 \item{icon_emoji}{what emoji to use (chr) \code{""} will mean use the default}
 
 \item{api_token}{your full Slack API token}
+
+\item{as_user}{use your Slack user or alias}
 }
 \description{
 Takes an \code{expr}, evaluates it and sends the output to a Slack
@@ -35,7 +37,7 @@ You need a \url{https://www.slack.com} account and will also need to
       setup an API token \url{https://api.slack.com/}
       Also, you can pass in \code{as_user=TRUE}, the default, as part of the \code{...}
       parameters and the Slack API will post the message as your logged-in
-      user account (this will override anything set in \code{username}). 
+      user account (this will override anything set in \code{username}).
       Passing \code{as_user=FALSE}, results in the Slack API posting the
       message as set in \code{username}
 }
